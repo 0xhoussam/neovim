@@ -1,10 +1,5 @@
 local plugins = {
-	{
-		dir = "~/projects/fleet",
-		dev = true,
-		lazy = false,
-		priority = 1000,
-	},
+	"0xhoussam/fleet.nvim",
 	"HiPhish/rainbow-delimiters.nvim",
 	"nvim-tree/nvim-web-devicons",
 	{
@@ -160,16 +155,6 @@ local plugins = {
 			require("bufdelete")
 		end,
 	},
-	-- {
-	-- 	"MeanderingProgrammer/dashboard.nvim",
-	-- 	event = "VimEnter",
-	-- 	dependencies = {
-	-- 		{ "MaximilianLloyd/ascii.nvim", dependencies = { "MunifTanjim/nui.nvim" } },
-	-- 	},
-	-- 	config = function()
-	-- 		require("pride.config.dashboard")
-	-- 	end,
-	-- },
 	{
 		"kevinhwang91/nvim-bqf",
 		ft = "qf",
@@ -206,31 +191,6 @@ local plugins = {
 		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
 	},
 	{
-		"nvim-treesitter/playground",
-		config = function()
-			require("nvim-treesitter.configs").setup({
-				playground = {
-					enable = true,
-					disable = {},
-					updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
-					persist_queries = false, -- Whether the query persists across vim sessions
-					keybindings = {
-						toggle_query_editor = "o",
-						toggle_hl_groups = "i",
-						toggle_injected_languages = "t",
-						toggle_anonymous_nodes = "a",
-						toggle_language_display = "I",
-						focus_language = "f",
-						unfocus_language = "F",
-						update = "R",
-						goto_node = "<cr>",
-						show_help = "?",
-					},
-				},
-			})
-		end,
-	},
-	{
 		"folke/tokyonight.nvim",
 		lazy = false,
 		priority = 1000,
@@ -250,27 +210,21 @@ local plugins = {
 	},
 	{
 		"OXY2DEV/markview.nvim",
-		lazy = false, -- Recommended
-		-- ft = "markdown" -- If you decide to lazy-load anyway
-
+		lazy = false,
 		dependencies = {
-			-- You will not need this if you installed the
-			-- parsers manually
-			-- Or if the parsers are in your $RUNTIMEPATH
 			"nvim-treesitter/nvim-treesitter",
-
 			"nvim-tree/nvim-web-devicons",
 		},
 	},
 	{
-		'jmbuhr/otter.nvim',
+		"jmbuhr/otter.nvim",
 		dependencies = {
-		  'nvim-treesitter/nvim-treesitter',
+			"nvim-treesitter/nvim-treesitter",
 		},
 		opts = {},
-		config = function ()
+		config = function()
 			require("pride.config.otter")
-		end
+		end,
 	},
 }
 
