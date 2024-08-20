@@ -17,6 +17,7 @@ conform.setup({
 		graphql = { "prettier" },
 		lua = { "stylua" },
 		python = { "isort", "black" },
+		nix = { "nixfmt" },
 	},
 	format_on_save = {
 		lsp_fallback = true,
