@@ -112,6 +112,13 @@ mason_lspconfig.setup_handlers({
 			},
 		})
 	end,
+
+	["hyprls"] = function()
+		lspconfig["hyprls"].setup({
+			capabilities = capabilities,
+			filetypes = { "hyprlang" },
+		})
+	end,
 })
 
 local _start_client = vim.lsp.start_client
