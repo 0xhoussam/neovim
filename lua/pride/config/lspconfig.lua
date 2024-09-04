@@ -119,6 +119,11 @@ mason_lspconfig.setup_handlers({
 			filetypes = { "hyprlang" },
 		})
 	end,
+    ["harper-ls"] = function ()
+        lspconfig["harper-ls"].setup({
+            capabilities = capabilities,
+        })
+    end,
 })
 
 local _start_client = vim.lsp.start_client
