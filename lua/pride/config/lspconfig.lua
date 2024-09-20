@@ -1,6 +1,5 @@
 local lspconfig = require("lspconfig")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
-local mason_lspconfig = require("mason-lspconfig")
 
 local keymap = vim.keymap -- for conciseness
 
@@ -56,71 +55,32 @@ vim.api.nvim_create_autocmd("LspAttach", {
 -- used to enable autocompletion (assign to every lsp server config)
 local capabilities = cmp_nvim_lsp.default_capabilities()
 
--- Change the Diagnostic symbols in the sign column (gutter)
--- (not in youtube nvim video)
 local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
 for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
-mason_lspconfig.setup_handlers({
-	function(server_name)
-		lspconfig[server_name].setup({
-			capabilities = capabilities,
-		})
-	end,
-
-	["emmet_ls"] = function()
-		-- configure emmet language server
-		lspconfig["emmet_ls"].setup({
-			capabilities = capabilities,
-			filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
-		})
-	end,
-
-	["html"] = function()
-		-- configure emmet language server
-		lspconfig["html"].setup({
-			capabilities = capabilities,
-			filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
-		})
-	end,
-
-	["cssls"] = function()
-		-- configure emmet language server
-		lspconfig["cssls"].setup({
-			capabilities = capabilities,
-			filetypes = { "html", "css", "sass", "scss", "less", "svelte" },
-		})
-	end,
-
-	["lua_ls"] = function()
-		-- configure lua server (with special settings)
-		lspconfig["lua_ls"].setup({
-			capabilities = capabilities,
-			settings = {
-				Lua = {
-					-- make the language server recognize "vim" global
-					diagnostics = {
-						globals = { "vim" },
-					},
-					completion = {
-						callSnippet = "Replace",
-					},
-				},
-			},
-		})
-	end,
-
-	["hyprls"] = function()
-		lspconfig["hyprls"].setup({
-			capabilities = capabilities,
-			filetypes = { "hyprlang" },
-		})
-	end,
+-- LSP Servers
+lspconfig.rust_analyzer.setup({
+	capabilities = capabilities,
+	settings = {
+		["rust-analyzer"] = {},
+	},
 })
 
+lspconfig.nixd.setup({
+    capabilities = capabilities,
+    settings = {
+      nixd = {
+         formatting = {
+            command = { "nixfmt" },
+         },
+      },
+   },
+})
+
+-- Enable inlay hints
 local _start_client = vim.lsp.start_client
 vim.lsp.start_client = function(config)
 	local _on_attach = config.on_attach
