@@ -191,12 +191,6 @@ local plugins = {
 		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
 	},
 	{
-		"folke/tokyonight.nvim",
-		lazy = false,
-		priority = 1000,
-		opts = {},
-	},
-	{
 		"f-person/git-blame.nvim",
 		config = function()
 			require("gitblame").setup({ enabled = false })
@@ -224,6 +218,24 @@ local plugins = {
 		opts = {},
 		config = function()
 			require("pride.config.otter")
+		end,
+	},
+	{
+		"nyoom-engineering/oxocarbon.nvim",
+	},
+	{
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+		},
+		config = function()
+			require("pride.config.text-objects")
+		end,
+	},
+	{
+		"nvim-treesitter/nvim-treesitter-context",
+		config = function()
+			require("treesitter-context").setup()
 		end,
 	},
 }

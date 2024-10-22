@@ -69,16 +69,36 @@ lspconfig.rust_analyzer.setup({
 	},
 })
 
-lspconfig.nixd.setup({
-    capabilities = capabilities,
-    settings = {
-      nixd = {
-         formatting = {
-            command = { "nixfmt" },
-         },
-      },
-   },
+-- lspconfig.ts_ls.setup{
+-- capabilities = capabilities,
+--   -- init_options = {
+--   --   plugins = {
+--   --     {
+--   --       languages = {"javascript", "typescript" },
+--   --     },
+--   --   },
+--   -- },
+--   filetypes = {
+--     "javascript",
+--     "typescript",
+--   },
+-- }
+lspconfig.ts_ls.setup({
+	capabilities = capabilities,
 })
+
+lspconfig.nixd.setup({
+	capabilities = capabilities,
+	settings = {
+		nixd = {
+			formatting = {
+				command = { "nixfmt" },
+			},
+		},
+	},
+})
+
+lspconfig.pyright.setup({})
 
 -- Enable inlay hints
 local _start_client = vim.lsp.start_client
