@@ -196,12 +196,12 @@ local plugins = {
 			require("gitblame").setup({ enabled = false })
 		end,
 	},
-	{
-		"akinsho/toggleterm.nvim",
-		config = function()
-			require("pride.config.toggleterm")
-		end,
-	},
+	-- {
+	-- 	"akinsho/toggleterm.nvim",
+	-- 	config = function()
+	-- 		require("pride.config.toggleterm")
+	-- 	end,
+	-- },
 	{
 		"OXY2DEV/markview.nvim",
 		lazy = false,
@@ -237,6 +237,16 @@ local plugins = {
 		config = function()
 			require("treesitter-context").setup()
 		end,
+	},
+	{
+		"nvimdev/lspsaga.nvim",
+		config = function()
+			require("lspsaga").setup()
+		end,
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-tree/nvim-web-devicons",
+		},
 	},
 }
 
