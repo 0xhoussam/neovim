@@ -16,19 +16,15 @@ conform.setup({
 		markdown = { "prettier" },
 		graphql = { "prettier" },
 		lua = { "stylua" },
-		python = { "isort", "black" },
+		python = { "black" },
 		nix = { "nixfmt" },
 	},
-	format_on_save = {
-		lsp_fallback = true,
-		async = false,
-		timeout_ms = 500,
+	formatters = {
+		black = {
+			prepend_args = { "--fast" },
+		},
 	},
-	vim.keymap.set({ "n", "v" }, "<leader>lf", function()
-		conform.format({
-			lsp_fallback = true,
-			async = false,
-			timeout_ms = 500,
-		})
-	end, { desc = "Format file or range (in visual mode)" }),
+	format_after_save = {
+		lsp_fallback = true,
+	},
 })
