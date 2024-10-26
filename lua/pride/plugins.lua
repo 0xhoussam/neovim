@@ -28,16 +28,6 @@ local plugins = {
 			require("pride.config.auto-pairs")
 		end,
 	},
-	-- {
-	-- 	"williamboman/mason.nvim",
-	-- 	lazy = false,
-	-- 	config = function()
-	-- 		require("pride.config.mason")
-	-- 	end,
-	-- 	dependencies = {
-	-- 		"williamboman/mason-lspconfig.nvim",
-	-- 	},
-	-- },
 	{
 		"numToStr/Comment.nvim",
 		event = "BufRead",
@@ -165,7 +155,7 @@ local plugins = {
 	{
 		"rcarriga/nvim-notify",
 		config = function()
-			require("notify")
+			require("notify").setup()
 		end,
 	},
 	{
@@ -196,12 +186,6 @@ local plugins = {
 			require("gitblame").setup({ enabled = false })
 		end,
 	},
-	-- {
-	-- 	"akinsho/toggleterm.nvim",
-	-- 	config = function()
-	-- 		require("pride.config.toggleterm")
-	-- 	end,
-	-- },
 	{
 		"OXY2DEV/markview.nvim",
 		lazy = false,
