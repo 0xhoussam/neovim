@@ -121,6 +121,8 @@ lspconfig.lua_ls.setup({
 	},
 })
 
+lspconfig.clangd.setup({})
+
 lspconfig.nixd.setup({
 	capabilities = capabilities,
 	settings = {
