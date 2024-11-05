@@ -205,9 +205,6 @@ local plugins = {
 		end,
 	},
 	{
-		"nyoom-engineering/oxocarbon.nvim",
-	},
-	{
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
