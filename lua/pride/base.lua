@@ -11,7 +11,7 @@ vim.api.nvim_command("filetype plugin indent on")
 o.termguicolors = true
 o.background = "dark"
 vim.cmd.colorscheme("fleet")
-vim.o.guifont = "ZedMono Nerd Font:h15"
+-- vim.o.guifont = "ZedMono Nerd Font:h14"
 
 o.ph = 10
 o.pw = 2
