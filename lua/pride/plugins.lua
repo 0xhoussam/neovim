@@ -214,12 +214,6 @@ local plugins = {
 		end,
 	},
 	{
-		"nvim-treesitter/nvim-treesitter-context",
-		config = function()
-			require("treesitter-context").setup()
-		end,
-	},
-	{
 		"nvimdev/lspsaga.nvim",
 		config = function()
 			require("lspsaga").setup()
