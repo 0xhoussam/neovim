@@ -1,5 +1,9 @@
 local plugins = {
-	"0xhoussam/fleet.nvim",
+	-- "0xhoussam/fleet.nvim",
+	{
+		dir = "~/projects/fleet.nvim",
+		dev = { true },
+	},
 	"HiPhish/rainbow-delimiters.nvim",
 	"nvim-tree/nvim-web-devicons",
 	{
@@ -56,39 +60,17 @@ local plugins = {
 		end,
 	},
 	{
-		"hrsh7th/nvim-cmp",
-		event = "InsertEnter",
-		dependencies = {
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-path",
-			"L3MON4D3/LuaSnip",
-			"saadparwaiz1/cmp_luasnip",
-			"rafamadriz/friendly-snippets",
-			"onsails/lspkind.nvim",
-		},
-		config = function()
-			require("pride.config.nvim-cmp")
-		end,
-	},
-	{
 		"neovim/nvim-lspconfig",
 		event = {
 			"BufReadPre",
 			"BufNewFile",
 		},
 		dependencies = {
-			"hrsh7th/cmp-nvim-lsp",
+			-- "hrsh7th/cmp-nvim-lsp",
 			{ "antosha417/nvim-lsp-file-operations", config = true },
 		},
 		config = function()
 			require("pride.config.lspconfig")
-		end,
-	},
-	{
-		"gelguy/wilder.nvim",
-		event = "CmdlineEnter",
-		config = function()
-			require("pride.config.wilder")
 		end,
 	},
 	{
@@ -193,6 +175,9 @@ local plugins = {
 			"nvim-treesitter/nvim-treesitter",
 			"nvim-tree/nvim-web-devicons",
 		},
+		config = function()
+			require("pride.config.markview")
+		end,
 	},
 	{
 		"jmbuhr/otter.nvim",
@@ -222,6 +207,27 @@ local plugins = {
 			"nvim-treesitter/nvim-treesitter",
 			"nvim-tree/nvim-web-devicons",
 		},
+	},
+	{
+		"RRethy/vim-illuminate",
+		config = function()
+			require("pride.config.illuminate")
+		end,
+	},
+	{
+		"saghen/blink.cmp",
+		lazy = false,
+		dependencies = "rafamadriz/friendly-snippets",
+		version = "v0.*",
+		opts = require("pride.config.blink"),
+	},
+	{
+		"rachartier/tiny-inline-diagnostic.nvim",
+		event = "VeryLazy", -- Or `LspAttach`
+		priority = 1000, -- needs to be loaded in first
+		config = function()
+			require("pride.config.tiny-inline-diagnostic")
+		end,
 	},
 }
 

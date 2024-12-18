@@ -1,5 +1,5 @@
 local lspconfig = require("lspconfig")
-local cmp_nvim_lsp = require("cmp_nvim_lsp")
+-- local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 local keymap = vim.keymap -- for conciseness
 
@@ -53,7 +53,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 -- used to enable autocompletion (assign to every lsp server config)
-local capabilities = cmp_nvim_lsp.default_capabilities()
+-- local capabilities = cmp_nvim_lsp.default_capabilities()
+local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
 for type, icon in pairs(signs) do
@@ -121,7 +122,13 @@ lspconfig.lua_ls.setup({
 	},
 })
 
-lspconfig.clangd.setup({})
+lspconfig.clangd.setup({
+	capabilities = capabilities,
+})
+
+lspconfig.gopls.setup({
+	capabilities = capabilities,
+})
 
 lspconfig.nixd.setup({
 	capabilities = capabilities,
@@ -134,7 +141,17 @@ lspconfig.nixd.setup({
 	},
 })
 
-lspconfig.pyright.setup({})
+lspconfig.ocamllsp.setup({
+	capabilities = capabilities,
+})
+
+lspconfig.pyright.setup({
+	capabilities = capabilities,
+})
+
+lspconfig.cssls.setup({
+	capabilities = capabilities,
+})
 
 -- Enable inlay hints
 local _start_client = vim.lsp.start_client
