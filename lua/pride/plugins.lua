@@ -59,6 +59,21 @@ local plugins = {
 			require("pride.config.bufferline")
 		end,
 	},
+	-- {
+	-- 	"hrsh7th/nvim-cmp",
+	-- 	event = "InsertEnter",
+	-- 	dependencies = {
+	-- 		"hrsh7th/cmp-buffer",
+	-- 		"hrsh7th/cmp-path",
+	-- 		"L3MON4D3/LuaSnip",
+	-- 		"saadparwaiz1/cmp_luasnip",
+	-- 		"rafamadriz/friendly-snippets",
+	-- 		"onsails/lspkind.nvim",
+	-- 	},
+	-- 	config = function()
+	-- 		require("pride.config.nvim-cmp")
+	-- 	end,
+	-- },
 	{
 		"neovim/nvim-lspconfig",
 		event = {
@@ -228,6 +243,14 @@ local plugins = {
 		config = function()
 			require("pride.config.tiny-inline-diagnostic")
 		end,
+	},
+
+	{
+		"stevearc/oil.nvim",
+		---@module 'oil'
+		---@type oil.SetupOpts
+		opts = {},
+		dependencies = { { "echasnovski/mini.icons", opts = {} } },
 	},
 }
 
