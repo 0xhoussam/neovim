@@ -247,10 +247,26 @@ local plugins = {
 
 	{
 		"stevearc/oil.nvim",
-		---@module 'oil'
-		---@type oil.SetupOpts
-		opts = {},
 		dependencies = { { "echasnovski/mini.icons", opts = {} } },
+		config = function()
+			require("pride.config.oil")
+		end,
+	},
+	{
+		"Goose97/timber.nvim",
+		version = "*", -- Use for stability; omit to use `main` branch for the latest features
+		event = "VeryLazy",
+		config = function()
+			require("timber").setup({
+				-- Configuration here, or leave empty to use defaults
+			})
+		end,
+	},
+	{
+		"ggandor/leap.nvim",
+		config = function()
+			require("leap").create_default_mappings()
+		end,
 	},
 }
 

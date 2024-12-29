@@ -35,8 +35,11 @@ map("n", "<leader>b", "<Cmd>GitBlameToggle<CR>", opts)
 vim.api.nvim_set_keymap("n", "<leader><CR>", ":luafile $MYVIMRC<CR>", opts)
 
 -- Lsp Saga
-map("n", "<leader>sf", "<Cmd>Lspsaga finder<CR>", opts)
-map("n", "<leader>d", "<Cmd>Lspsaga show_buf_diagnostics<CR>", opts)
+map("n", "<leader>rf", "<Cmd>Lspsaga finder<CR>", opts)
+map("n", "<leader>bd", "<Cmd>Lspsaga show_buf_diagnostics<CR>", opts)
+map("n", "<leader>wd", "<Cmd>Lspsaga show_workspace_diagnostics<CR>", opts)
 map("n", "<leader>k", "<Cmd>Lspsaga hover_doc<CR>", opts)
 map("n", "<C-\\>", "<Cmd>Lspsaga term_toggle<CR>", opts)
 map("t", "<C-\\>", "<Cmd>Lspsaga term_toggle<CR>", opts)
+
+map("n", "<S-E>", "<S-$>", opts)

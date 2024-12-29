@@ -21,16 +21,14 @@ local opts = {
 	-- default list of enabled providers defined so that you can extend it
 	-- elsewhere in your config, without redefining it, via `opts_extend`
 	sources = {
-		completion = {
-			enabled_providers = { "lsp", "path", "snippets", "buffer" },
-		},
+		default = { "lsp", "path", "snippets", "buffer" },
 	},
 
 	-- experimental auto-brackets support
 	-- completion = { accept = { auto_brackets = { enabled = true } } }
 
 	-- experimental signature help support
-	-- signature = { enabled = true }
+	signature = { enabled = true },
 }
 
 return opts
