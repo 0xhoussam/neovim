@@ -21,14 +21,32 @@ local opts = {
 	-- default list of enabled providers defined so that you can extend it
 	-- elsewhere in your config, without redefining it, via `opts_extend`
 	sources = {
-		default = { "lsp", "path", "snippets", "buffer" },
+		default = { "path", "snippets", "buffer" },
+		-- default = { "lsp", "path", "snippets", "buffer" },
 	},
 
 	-- experimental auto-brackets support
-	-- completion = { accept = { auto_brackets = { enabled = true } } }
+	completion = {--[[  accept = { auto_brackets = { enabled = true } }  ]]
+		menu = {
+			draw = {
+				treesitter = { "lsp" },
+				columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } },
+				components = {
+					kind_icons = {
+						ellipsis = false,
+						text = function(ctx)
+							local kind_icon, _, _ = require("mini.icons").get("lsp", ctx.kind)
+							return kind_icon
+						end,
+					},
+				},
+			},
+		},
+	},
 
 	-- experimental signature help support
 	signature = { enabled = true },
 }
+-- opts.completion.menu.draw.treesitter = { "lsp" }
 
 return opts
