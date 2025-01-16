@@ -5,7 +5,7 @@ local opt = vim.opt
 opt.linespace = 1
 
 -- vim.cmd("syntax on")
-vim.opt.cmdheight = 1
+vim.opt.cmdheight = 0
 vim.api.nvim_command("filetype plugin indent on")
 
 o.termguicolors = true
