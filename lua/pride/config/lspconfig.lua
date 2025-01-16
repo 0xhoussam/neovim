@@ -70,22 +70,36 @@ lspconfig.rust_analyzer.setup({
 	},
 })
 
--- lspconfig.ts_ls.setup{
--- capabilities = capabilities,
---   -- init_options = {
---   --   plugins = {
---   --     {
---   --       languages = {"javascript", "typescript" },
---   --     },
---   --   },
---   -- },
---   filetypes = {
---     "javascript",
---     "typescript",
---   },
--- }
 lspconfig.ts_ls.setup({
 	capabilities = capabilities,
+	settings = {
+		typescript = {
+			inlayHints = {
+				-- You can set this to 'all' or 'literals' to enable more hints
+				includeInlayParameterNameHints = "none", -- 'none' | 'literals' | 'all'
+				includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+				includeInlayFunctionParameterTypeHints = false,
+				includeInlayVariableTypeHints = false,
+				includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+				includeInlayPropertyDeclarationTypeHints = false,
+				includeInlayFunctionLikeReturnTypeHints = true,
+				includeInlayEnumMemberValueHints = true,
+			},
+		},
+		javascript = {
+			inlayHints = {
+				-- You can set this to 'all' or 'literals' to enable more hints
+				includeInlayParameterNameHints = "none", -- 'none' | 'literals' | 'all'
+				includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+				includeInlayVariableTypeHints = false,
+				includeInlayFunctionParameterTypeHints = false,
+				includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+				includeInlayPropertyDeclarationTypeHints = false,
+				includeInlayFunctionLikeReturnTypeHints = true,
+				includeInlayEnumMemberValueHints = true,
+			},
+		},
+	},
 })
 
 lspconfig.lua_ls.setup({
@@ -150,6 +164,10 @@ lspconfig.pyright.setup({
 })
 
 lspconfig.cssls.setup({
+	capabilities = capabilities,
+})
+
+lspconfig.asm_lsp.setup({
 	capabilities = capabilities,
 })
 
