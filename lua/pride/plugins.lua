@@ -262,6 +262,9 @@ local plugins = {
 			})
 		end,
 	},
+	{
+		"nvim-treesitter/playground",
+	},
 }
 
 require("lazy").setup(plugins, {})
