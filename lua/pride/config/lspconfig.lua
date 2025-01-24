@@ -170,6 +170,9 @@ lspconfig.cssls.setup({
 lspconfig.asm_lsp.setup({
 	capabilities = capabilities,
 })
+lspconfig.gleam.setup({
+	capabilities = capabilities,
+})
 
 -- Enable inlay hints
 local _start_client = vim.lsp.start_client
