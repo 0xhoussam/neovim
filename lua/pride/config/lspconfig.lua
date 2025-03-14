@@ -75,26 +75,24 @@ lspconfig.ts_ls.setup({
 	settings = {
 		typescript = {
 			inlayHints = {
-				-- You can set this to 'all' or 'literals' to enable more hints
-				includeInlayParameterNameHints = "none", -- 'none' | 'literals' | 'all'
+				includeInlayParameterNameHints = "all",
 				includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-				includeInlayFunctionParameterTypeHints = false,
-				includeInlayVariableTypeHints = false,
+				includeInlayFunctionParameterTypeHints = true,
+				includeInlayVariableTypeHints = true,
 				includeInlayVariableTypeHintsWhenTypeMatchesName = false,
-				includeInlayPropertyDeclarationTypeHints = false,
+				includeInlayPropertyDeclarationTypeHints = true,
 				includeInlayFunctionLikeReturnTypeHints = true,
 				includeInlayEnumMemberValueHints = true,
 			},
 		},
 		javascript = {
 			inlayHints = {
-				-- You can set this to 'all' or 'literals' to enable more hints
-				includeInlayParameterNameHints = "none", -- 'none' | 'literals' | 'all'
+				includeInlayParameterNameHints = "all",
 				includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-				includeInlayVariableTypeHints = false,
-				includeInlayFunctionParameterTypeHints = false,
+				includeInlayFunctionParameterTypeHints = true,
+				includeInlayVariableTypeHints = true,
 				includeInlayVariableTypeHintsWhenTypeMatchesName = false,
-				includeInlayPropertyDeclarationTypeHints = false,
+				includeInlayPropertyDeclarationTypeHints = true,
 				includeInlayFunctionLikeReturnTypeHints = true,
 				includeInlayEnumMemberValueHints = true,
 			},
@@ -136,7 +134,11 @@ lspconfig.lua_ls.setup({
 	},
 })
 
-lspconfig.clangd.setup({
+-- lspconfig.clangd.setup({
+-- 	capabilities = capabilities,
+-- })
+
+lspconfig.ccls.setup({
 	capabilities = capabilities,
 })
 

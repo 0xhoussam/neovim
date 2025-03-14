@@ -5,24 +5,18 @@ local plugins = {
 		dev = { true },
 	},
 	"HiPhish/rainbow-delimiters.nvim",
-	"nvim-tree/nvim-web-devicons",
 	{
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 		config = function()
 			require("pride.config.treesitter")
 		end,
+		-- enabled = false,
 	},
 	{
 		"nvim-lualine/lualine.nvim",
 		config = function()
 			require("pride.config.lualine")
-		end,
-	},
-	{
-		"nvim-tree/nvim-tree.lua",
-		config = function()
-			require("pride.config.nvim-tree-lua")
 		end,
 	},
 	{
@@ -59,21 +53,6 @@ local plugins = {
 			require("pride.config.bufferline")
 		end,
 	},
-	-- {
-	-- 	"hrsh7th/nvim-cmp",
-	-- 	event = "InsertEnter",
-	-- 	dependencies = {
-	-- 		"hrsh7th/cmp-buffer",
-	-- 		"hrsh7th/cmp-path",
-	-- 		"L3MON4D3/LuaSnip",
-	-- 		"saadparwaiz1/cmp_luasnip",
-	-- 		"rafamadriz/friendly-snippets",
-	-- 		"onsails/lspkind.nvim",
-	-- 	},
-	-- 	config = function()
-	-- 		require("pride.config.nvim-cmp")
-	-- 	end,
-	-- },
 	{
 		"neovim/nvim-lspconfig",
 		event = {
@@ -180,7 +159,7 @@ local plugins = {
 	{
 		"f-person/git-blame.nvim",
 		config = function()
-			require("gitblame").setup({ enabled = false })
+			require("gitblame").setup({ enabled = false, delay = 1000 })
 		end,
 	},
 	{
@@ -212,6 +191,7 @@ local plugins = {
 		config = function()
 			require("pride.config.text-objects")
 		end,
+		-- enabled = false,
 	},
 	{
 		"nvimdev/lspsaga.nvim",
@@ -251,6 +231,7 @@ local plugins = {
 		config = function()
 			require("pride.config.oil")
 		end,
+		priority = 1000,
 	},
 	{
 		"Goose97/timber.nvim",
@@ -264,6 +245,24 @@ local plugins = {
 	},
 	{
 		"nvim-treesitter/playground",
+		enabled = false,
+	},
+	{
+		"kylechui/nvim-surround",
+		version = "*", -- Use for stability; omit to use `main` branch for the latest features
+		event = "VeryLazy",
+		config = function()
+			require("nvim-surround").setup()
+		end,
+	},
+	{
+		"nvim-tree/nvim-tree.lua",
+		config = function()
+			require("pride.config.nvim-tree")
+		end,
+	},
+	{
+		"sindrets/diffview.nvim",
 	},
 }
 
