@@ -1,5 +1,11 @@
-require("pride.lazy")
-require("pride.plugins")
-require("pride.base")
-require("pride.keybindings")
-require("pride.autocmd")
+require("config.lazy")
+require("base")
+require("keybindings")
+
+vim.lsp.enable({
+	"clangd",
+	"gopls",
+	"rust-analyzer",
+	"ts_ls",
+	"lua_ls",
+})
