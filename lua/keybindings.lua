@@ -26,23 +26,29 @@ map("n", "<leader>e", "<Cmd>NvimTreeToggle<CR>", opts)
 -- Telescope
 map("n", "<leader>f", "<Cmd>Telescope find_files<CR>", opts)
 map("n", "<leader>g", "<Cmd>Telescope live_grep<CR>", opts)
--- map("n", "<leader>s", "<Cmd>Telescope lsp_document_symbols<CR>", opts)
-map("n", "<leader>r", "<Cmd>Telescope registers<CR>", opts)
-map("n", "<leader>tw", "<Cmd>Telescope git_worktree<CR>", opts)
+map("n", "<leader>ts", "<Cmd>Telescope lsp_document_symbols<CR>", opts)
+map("n", "<leader>tr", "<Cmd>Telescope registers<CR>", opts)
+vim.keymap.set("n", "<leader>tlr", "<Cmd>Telescope lsp_refrences<CR>", opts)
 
 -- Gitblame
 map("n", "<leader>b", "<Cmd>GitBlameToggle<CR>", opts)
 
 vim.api.nvim_set_keymap("n", "<leader><CR>", ":luafile $MYVIMRC<CR>", opts)
 
--- Lsp Saga
-map("n", "<leader>rf", "<Cmd>Lspsaga finder<CR>", opts)
-map("n", "<leader>k", "<Cmd>Lspsaga hover_doc<CR>", opts)
+vim.keymap.set("n", "K", require("hover").hover, opts)
+vim.keymap.set("n", "gK", require("hover").hover_select, opts)
+vim.keymap.set("n", "<MouseMove>", require("hover").hover_mouse, opts)
 
-map("n", "<leader>dn", "<Cmd>Lspsaga diagnostic_jump_next<CR>", opts)
-map("n", "<leader>dp", "<Cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
+-- map("n", "<leader>dn", next_diagnostics, opts)
+vim.keymap.set("n", "<leader>dn", function()
+	vim.diagnostic.goto_next()
+end, opts)
+vim.keymap.set("n", "<leader>dp", function()
+	vim.diagnostic.goto_prev()
+end, opts)
 
-map("n", "<C-\\>", "<Cmd>Lspsaga term_toggle<CR>", opts)
-map("t", "<C-\\>", "<Cmd>Lspsaga term_toggle<CR>", opts)
+map("n", "<C-\\>", "<Cmd>ToggleTerm<CR>", opts)
 
 map("n", "<S-E>", "<S-$>", opts)
+
+vim.keymap.set("n", "z=", "<Cmd>Telescope spell_suggest<CR>", opts)
