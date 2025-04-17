@@ -1,6 +1,7 @@
 require("config.lazy")
 require("base")
 require("keybindings")
+require("command")
 
 vim.lsp.enable({
 	"clangd",
@@ -8,4 +9,5 @@ vim.lsp.enable({
 	"rust-analyzer",
 	"ts_ls",
 	"lua_ls",
+	"gleam",
 })

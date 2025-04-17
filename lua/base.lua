@@ -7,6 +7,7 @@ opt.linespace = 1
 -- vim.cmd("syntax on")
 vim.opt.cmdheight = 0
 vim.api.nvim_command("filetype plugin indent on")
+vim.g.disable_autoformat = true
 
 o.termguicolors = true
 o.background = "dark"
@@ -91,10 +92,17 @@ opt.mouse = "a"
 g.mapleader = " "
 g.maplocalleader = " "
 
--- Resetting the cursor
-vim.cmd([[
-augroup RestoreCursorShapeOnExit
-    autocmd!
-    autocmd VimLeave * set guicursor=a:ver20
-augroup END
-]])
+vim.lsp.inlay_hint.enable()
+
+vim.diagnostic.config({
+	virtual_text = {
+		severity = {
+			max = vim.diagnostic.severity.WARN,
+		},
+	},
+	virtual_lines = {
+		severity = {
+			min = vim.diagnostic.severity.ERROR,
+		},
+	},
+})

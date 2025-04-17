@@ -52,3 +52,5 @@ map("n", "<C-\\>", "<Cmd>ToggleTerm<CR>", opts)
 map("n", "<S-E>", "<S-$>", opts)
 
 vim.keymap.set("n", "z=", "<Cmd>Telescope spell_suggest<CR>", opts)
+
+vim.keymap.set("v", "//", [[y/\V<C-R>=escape(@",'/\')<CR><CR>]], { noremap = true, silent = false })

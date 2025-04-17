@@ -6,4 +6,30 @@ return {
 		hostInfo = "neovim",
 	},
 	single_file_support = true,
+	settings = {
+		typescript = {
+			inlayHints = {
+				includeInlayParameterNameHints = "literals",
+				includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+				includeInlayFunctionParameterTypeHints = false,
+				includeInlayVariableTypeHints = false,
+				includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+				includeInlayPropertyDeclarationTypeHints = false,
+				includeInlayFunctionLikeReturnTypeHints = true,
+				includeInlayEnumMemberValueHints = false,
+			},
+		},
+		javascript = {
+			inlayHints = {
+				includeInlayParameterNameHints = "literals",
+				includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+				includeInlayFunctionParameterTypeHints = false,
+				includeInlayVariableTypeHints = false,
+				includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+				includeInlayPropertyDeclarationTypeHints = false,
+				includeInlayFunctionLikeReturnTypeHints = true,
+				includeInlayEnumMemberValueHints = false,
+			},
+		},
+	},
 }
