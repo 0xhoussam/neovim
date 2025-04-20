@@ -26,9 +26,10 @@ return {
 					prepend_args = { "--fast" },
 				},
 			},
-			format_after_save = {
-				lsp_fallback = true,
-			},
+			-- format_after_save = {
+			-- 	lsp_fallback = true,
+			-- },
+			format_on_save = false,
 		})
 	end,
 }
