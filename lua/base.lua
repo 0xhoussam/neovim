@@ -2,7 +2,7 @@ local g = vim.g
 local o = vim.o
 local opt = vim.opt
 
-opt.linespace = 1
+opt.linespace = 3
 
 -- vim.cmd("syntax on")
 vim.opt.cmdheight = 0
