@@ -14,9 +14,9 @@ return {
 				require("hover.providers.man")
 				require("hover.providers.dictionary")
 			end,
-			preview_opts = {
-				border = "single",
-			},
+			-- preview_opts = {
+			-- 	border = "single",
+			-- },
 			preview_window = false,
 			title = true,
 			mouse_providers = {

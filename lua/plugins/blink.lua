@@ -31,7 +31,7 @@ return {
 		-- experimental auto-brackets support
 		completion = {--[[  accept = { auto_brackets = { enabled = true } }  ]]
 			menu = {
-				border = "single",
+				-- border = "single",
 				draw = {
 					treesitter = { "lsp" },
 					columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } },
@@ -73,6 +73,6 @@ return {
 		},
 
 		-- experimental signature help support
-		signature = { enabled = true, window = { border = "single" } },
+		signature = { enabled = true, --[[ window = { border = "single" } ]] },
 	},
 }
