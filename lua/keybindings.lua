@@ -20,11 +20,8 @@ map("n", "<S-l>", "<Cmd>BufferLineCycleNext<CR>", opts)
 -- Close Buffer
 map("n", "<leader>c", "<Cmd>:Bdelete<CR>", opts)
 
--- NvimTreeLua
-map("n", "<leader>e", "<Cmd>NvimTreeToggle<CR>", opts)
-
 -- Telescope
-map("n", "<leader>f", "<Cmd>:Pick files<CR>", opts)
+map("n", "<leader>f", "<Cmd>Telescope find_files<CR>", opts)
 map("n", "<leader>g", "<Cmd>Telescope live_grep<CR>", opts)
 map("n", "<leader>ts", "<Cmd>Telescope lsp_document_symbols<CR>", opts)
 map("n", "<leader>tr", "<Cmd>Telescope registers<CR>", opts)

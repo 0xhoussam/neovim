@@ -20,6 +20,7 @@ return {
 				lua = { "stylua" },
 				python = { "black" },
 				nix = { "nixfmt" },
+                typst = {"typstyle"}
 			},
 			formatters = {
 				black = {

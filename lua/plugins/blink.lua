@@ -1,7 +1,7 @@
 return {
 	"saghen/blink.cmp",
 	lazy = false,
-	dependencies = {"rafamadriz/friendly-snippets", "onsails/lspkind.nvim", "nvim-tree/nvim-web-devicons"},
+	dependencies = { "rafamadriz/friendly-snippets", "onsails/lspkind.nvim", "nvim-tree/nvim-web-devicons" },
 	version = "v0.*",
 	opts = {
 		-- 'default' for mappings similar to built-in completion
@@ -36,6 +36,14 @@ return {
 					treesitter = { "lsp" },
 					columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } },
 					components = {
+						source_name = {
+							text = function(ctx)
+								if ctx.source_id == "cmdline" then
+									return
+								end
+								return ctx.source_name:sub(1, 4)
+							end,
+						},
 						kind_icon = {
 							text = function(ctx)
 								local icon = ctx.kind_icon
@@ -73,6 +81,8 @@ return {
 		},
 
 		-- experimental signature help support
-		signature = { enabled = true, --[[ window = { border = "single" } ]] },
+		signature = {
+			enabled = true, --[[ window = { border = "single" } ]]
+		},
 	},
 }
