@@ -12,7 +12,8 @@ vim.lsp.enable({
 	"gleam",
 	"zls",
 	"nixd",
-    "tinymist"
+    "tinymist",
+    "pyright"
 })
 
 vim.g.neovide_font_features = {"+ss01", "+ss07", "+ss11", "-calt", "+ss09", "+ss02", "+ss14"}

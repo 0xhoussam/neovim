@@ -30,7 +30,8 @@ vim.keymap.set("n", "<leader>tlr", "<Cmd>Telescope lsp_refrences<CR>", opts)
 -- Gitblame
 map("n", "<leader>b", "<Cmd>GitBlameToggle<CR>", opts)
 
-vim.api.nvim_set_keymap("n", "<leader><CR>", ":luafile $MYVIMRC<CR>", opts)
+-- Oil
+vim.keymap.set("n", "<leader>e", "<Cmd>Oil<CR>", opts)
 
 vim.keymap.set("n", "K", require("hover").hover, opts)
 vim.keymap.set("n", "gK", require("hover").hover_select, opts)
@@ -51,3 +52,7 @@ map("n", "<S-E>", "<S-$>", opts)
 vim.keymap.set("n", "z=", "<Cmd>Telescope spell_suggest<CR>", opts)
 
 vim.keymap.set("v", "//", [[y/\V<C-R>=escape(@",'/\')<CR><CR>]], { noremap = true, silent = false })
+
+-- lsp
+vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "Go to definition" })
+vim.keymap.set("n", "gvd", "<cmd>vsplit<CR><cmd>lua vim.lsp.buf.definition()<CR>", { desc = "Go to definition in vertical split" })
